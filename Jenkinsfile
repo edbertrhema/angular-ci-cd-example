@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "angular-app"
+        IMAGE_NAME = "my-angular-app"
         CONTAINER_NAME = "angular-container"
         PORT = "8088"
     }
@@ -13,6 +13,18 @@ pipeline {
                 git branch: 'dev', url: 'https://github.com/edbertrhema/angular-ci-cd-example.git'
             }
         }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Build Angular App') {
+            steps {
+                sh 'npx ng build --configuration=production'
+            }
+        }        
 
         stage('Build Docker Image') {
             steps {
