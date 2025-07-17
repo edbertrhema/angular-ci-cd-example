@@ -14,11 +14,18 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm install'
+    stage('Install Dependencies') {
+        steps {
+            // Only install if node_modules doesn't exist
+            script {
+                if (!fileExists('node_modules')) {
+                    sh 'npm install'
+                } else {
+                    echo "Using cached node_modules"
+                }
             }
         }
+    }
 
         stage('Build Angular App') {
             steps {
