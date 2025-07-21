@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git branch: 'dev', url: 'https://github.com/edbertrhema/angular-ci-cd-example.git'
+                git branch: 'prod', url: 'https://github.com/edbertrhema/angular-ci-cd-example.git'
             }
         }
 
