@@ -3,4 +3,4 @@
 repositori aplikasi angular untuk belajar CI/CD dengan menggunakan
 - ansible untuk set up aplikasi-aplikasi yang dibutuhkan di server
 - jenkins buat automation build aplikasi
-- docker untuk memasukan aplikasi ke dalama kontainer
+- docker untuk memasukan aplikasi ke dalam kontainer dan push ke repository dockerhub
