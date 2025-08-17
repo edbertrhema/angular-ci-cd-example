@@ -45,14 +45,14 @@ pipeline {
             }
         }
 
-        stage('Stop Existing Container') {
-            steps {
-                sh """
-                docker stop ${CONTAINER_NAME} || true
-                docker rm ${CONTAINER_NAME} || true
-                """
-            }
-        }
+        // stage('Stop Existing Container') {
+        //     steps {
+        //         sh """
+        //         docker stop ${CONTAINER_NAME} || true
+        //         docker rm ${CONTAINER_NAME} || true
+        //         """
+        //     }
+        // }
 
         stage('Docker Hub Login') {
             steps {
@@ -71,10 +71,12 @@ pipeline {
             }
         }
 
-        stage('Run New Container') {
-            steps {
-                sh "docker run -d -p ${PORT}:80 --name ${CONTAINER_NAME} ${DOCKERHUB_USER}/${IMAGE_NAME}:${TAG}"
-            }
-        }
+        // stage('Run New Container') {
+        //     steps {
+        //         sh "docker run -d -p ${PORT}:80 --name ${CONTAINER_NAME} ${DOCKERHUB_USER}/${IMAGE_NAME}:${TAG}"
+        //     }
+        // }
+
+        
     }
 }
