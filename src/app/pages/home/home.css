@@ -1,0 +1,6 @@
+.horizontal {
+  display: flex;        /* make it a flex container */
+  flex-direction: row;  /* lay out children left-to-right */
+  align-items: flex-start;  /* align items at the top */
+  gap: 2rem;            /* optional: space between the two groups */
+}
