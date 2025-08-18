@@ -77,6 +77,14 @@ pipeline {
         //     }
         // }
 
-        
+        stage('Deploy to Kubernetes') {
+            steps {
+                sshagent(['99af9b90-aa3d-41ed-8408-f792c9be9a17']) {
+                    sh 'ssh -o StrictHostKeyChecking=no root@10.15.179.20 "kubectl rollout restart deployments angular-app"'
+                }
+            }
+        }
+
+
     }
 }
